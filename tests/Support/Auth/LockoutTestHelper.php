@@ -2,7 +2,7 @@
 
 namespace Tests\Support\Auth;
 
-use App\Models\User;
+use Domain\Auth\Models\User;
 use Illuminate\Support\Str;
 use function Pest\Laravel\postJson;
 

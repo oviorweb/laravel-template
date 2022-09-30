@@ -1,5 +1,7 @@
 <?php
 
+use Domain\Auth\Models\User;
+
 return [
 
     'basic-auth' => [
@@ -67,7 +69,7 @@ return [
     'providers' => [
         'users' => [
             'driver' => 'eloquent',
-            'model' => App\Models\User::class,
+            'model' => User::class,
         ],
 
         // 'users' => [
