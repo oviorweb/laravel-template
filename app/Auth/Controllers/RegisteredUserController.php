@@ -2,8 +2,8 @@
 
 namespace App\Auth\Controllers;
 
+use App\Auth\Requests\RegisterRequest;
 use App\Controllers\Controller;
-use App\Requests\RegisterRequest;
 use Domain\Auth\Actions\CreateUserAction;
 use Domain\Auth\Data\UserData;
 use Illuminate\Http\Response;

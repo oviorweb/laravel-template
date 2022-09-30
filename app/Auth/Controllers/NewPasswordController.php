@@ -2,8 +2,8 @@
 
 namespace App\Auth\Controllers;
 
+use App\Auth\Requests\PasswordResetRequest;
 use App\Controllers\Controller;
-use App\Requests\PasswordResetRequest;
 use Domain\Auth\Actions\ResetPasswordAction;
 use Domain\Auth\Data\PasswordResetData;
 use Illuminate\Support\Facades\Password;
