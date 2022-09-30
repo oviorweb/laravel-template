@@ -18,8 +18,7 @@ class StockPriceChanged implements ShouldBroadcast
 
     public function __construct(
         public readonly int $price
-    )
-    {
+    ) {
     }
 
     public function broadcastAs(): string

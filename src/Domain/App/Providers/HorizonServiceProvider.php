@@ -15,7 +15,7 @@ class HorizonServiceProvider extends HorizonApplicationServiceProvider
     public function boot()
     {
         parent::boot();
-         Horizon::routeMailNotificationsTo('ddanygagnon@gmail.com');
+        Horizon::routeMailNotificationsTo('ddanygagnon@gmail.com');
     }
 
     /**
