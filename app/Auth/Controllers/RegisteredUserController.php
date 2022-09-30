@@ -3,9 +3,9 @@
 namespace App\Auth\Controllers;
 
 use App\Controllers\Controller;
+use App\Requests\RegisterRequest;
 use Domain\Auth\Actions\CreateUserAction;
 use Domain\Auth\Data\UserData;
-use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
 
@@ -14,11 +14,12 @@ class RegisteredUserController extends Controller
     /**
      * Handle an incoming registration request.
      *
-     * @param  UserData  $data
+     * @param  RegisterRequest  $request
      * @return Response
      */
-    public function store(UserData $data): Response
+    public function store(RegisterRequest $request): Response
     {
+        $data = new UserData(...$request->validated());
         $user = CreateUserAction::execute($data);
 
         Auth::login($user);
