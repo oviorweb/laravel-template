@@ -3,20 +3,109 @@
   <component name="LaravelIdeaMainSettings">
     <option name="codeGeneration">
       <LaravelCodeGeneration>
-        <option name="generationStringSettings">
+        <option name="customGenerations">
+          <list>
+            <CustomGeneration>
+              <option name="classSuffix" value="Action" />
+              <option name="namespace" value="Actions" />
+              <option name="templateName" value="_PHP Action" />
+              <option name="title" value="Create Action" />
+            </CustomGeneration>
+            <CustomGeneration>
+              <option name="classSuffix" value="Data" />
+              <option name="namespace" value="Data" />
+              <option name="templateName" value="_PHP Empty Constructor" />
+              <option name="title" value="Create Data" />
+            </CustomGeneration>
+            <CustomGeneration>
+              <option name="namespace" value="Concerns" />
+              <option name="templateName" value="_PHP Trait" />
+              <option name="title" value="Create Concerns (Trait)" />
+            </CustomGeneration>
+            <CustomGeneration>
+              <option name="namespace" value="Contracts" />
+              <option name="templateName" value="_PHP Contracts" />
+              <option name="title" value="Create Contract (Interface)" />
+            </CustomGeneration>
+            <CustomGeneration>
+              <option name="namespace" value="ValueObjects" />
+              <option name="templateName" value="_PHP Value Object" />
+              <option name="title" value="Create Value Objects" />
+            </CustomGeneration>
+            <CustomGeneration>
+              <option name="baseClass" value="Illuminate\Database\Eloquent\Collection" />
+              <option name="classSuffix" value="Collection" />
+              <option name="namespace" value="Collections" />
+              <option name="templateName" value="_PHP Empty Class" />
+              <option name="title" value="Create Collections" />
+            </CustomGeneration>
+            <CustomGeneration>
+              <option name="baseClass" value="Illuminate\Database\Eloquent\Builder" />
+              <option name="classSuffix" value="Builder" />
+              <option name="namespace" value="Builders" />
+              <option name="templateName" value="_PHP Empty Class" />
+              <option name="title" value="Create Builder" />
+            </CustomGeneration>
+            <CustomGeneration>
+              <option name="namespace" value="Enums" />
+              <option name="templateName" value="_PHP Empty Enum" />
+              <option name="title" value="Create Enum" />
+            </CustomGeneration>
+            <CustomGeneration>
+              <option name="classSuffix" value="Service" />
+              <option name="namespace" value="Services" />
+              <option name="templateName" value="_PHP Empty Class" />
+              <option name="title" value="Create Service" />
+            </CustomGeneration>
+          </list>
+        </option>
+        <option name="generationBooleanSettings">
           <map>
-            <entry key="createEloquentScope:namespace" value="Models\Scopes" />
-            <entry key="createModel:namespace" value="Models" />
+            <entry key="createConsoleCommand:inModules" value="true" />
+            <entry key="createEloquentCast:inModules" value="true" />
+            <entry key="createEloquentScope:inModules" value="true" />
+            <entry key="createEvent:inModules" value="true" />
+            <entry key="createException:inModules" value="true" />
+            <entry key="createJob:inModules" value="true" />
+            <entry key="createListener:inModules" value="true" />
+            <entry key="createMailable:inModules" value="true" />
+            <entry key="createModel:inModules" value="true" />
+            <entry key="createNotification:inModules" value="true" />
+            <entry key="createObserver:inModules" value="true" />
+            <entry key="createPolicy:inModules" value="true" />
+            <entry key="createRule:inModules" value="true" />
+            <entry key="createServiceProvider:inModules" value="true" />
           </map>
         </option>
+        <option name="generationStringSettings">
+          <map>
+            <entry key="createEvent:classSuffix" value="" />
+            <entry key="createFormRequest:namespace" value="Requests" />
+            <entry key="createJsonResource:namespace" value="Resources" />
+            <entry key="createJsonResourceCollection:namespace" value="Resources" />
+            <entry key="createMiddleware:namespace" value="Middleware" />
+            <entry key="createModel:namespace" value="Models" />
+            <entry key="createResourceController:namespace" value="Controllers" />
+          </map>
+        </option>
+        <option name="pluralControllerName" value="false" />
       </LaravelCodeGeneration>
     </option>
+    <option name="controllersBaseClass" value="App\Controllers\Controller" />
+    <option name="directoryModuleSystemNamespace" value="Domain" />
+    <option name="directoryModuleSystemRoot" value="src/Domain" />
     <option name="frameworkFound" value="true" />
+    <option name="moduleSystemName" value="directory" />
     <option name="translation">
       <LaravelTranslation>
         <option name="defaultPath" value="lang" />
       </LaravelTranslation>
     </option>
     <option name="userClassName" value="App\Models\User" />
+    <option name="validation">
+      <LaravelValidation>
+        <option name="rulesClassNames" value="FormRequest;Request;Component;CompositeRule;Action;Data" />
+      </LaravelValidation>
+    </option>
   </component>
 </project>
