@@ -11,7 +11,12 @@
 |
 */
 
-uses(Tests\TestCase::class)->in('Feature');
+use App\Models\User;
+use Illuminate\Foundation\Testing\LazilyRefreshDatabase;
+use Illuminate\Support\Facades\Auth;
+use function Pest\Laravel\assertAuthenticated;
+
+uses(Tests\TestCase::class, LazilyRefreshDatabase::class)->in('Feature');
 
 /*
 |--------------------------------------------------------------------------
@@ -28,6 +33,10 @@ expect()->extend('toBeOne', function () {
     return $this->toBe(1);
 });
 
+expect()->extend('toBeAuthenticated', function (User $user) {
+    return assertAuthenticated();
+});
+
 /*
 |--------------------------------------------------------------------------
 | Functions
@@ -39,7 +48,9 @@ expect()->extend('toBeOne', function () {
 |
 */
 
-function something()
+function actingAsGuest()
 {
-    // ..
+    Auth::logout();
+
+    return test();
 }

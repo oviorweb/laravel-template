@@ -1,47 +1,40 @@
 <?php
 
-namespace Tests\Feature\Auth;
+declare(strict_types=1);
 
-use App\Models\User;
+use Domain\Auth\Models\User;
 use Illuminate\Auth\Notifications\ResetPassword;
-use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Support\Facades\Notification;
-use Tests\TestCase;
+use function Pest\Laravel\postJson;
 
-class PasswordResetTest extends TestCase
-{
-    use RefreshDatabase;
+it('should send a request password link', function () {
+    Notification::fake();
 
-    public function test_reset_password_link_can_be_requested()
-    {
-        Notification::fake();
+    $user = User::factory()->create();
 
-        $user = User::factory()->create();
+    postJson(route('password.email'), [
+        'email' => $user->email,
+    ]);
 
-        $this->post('/forgot-password', ['email' => $user->email]);
+    Notification::assertSentTo($user, ResetPassword::class);
+});
 
-        Notification::assertSentTo($user, ResetPassword::class);
-    }
+it('should reset password with a valid token', function () {
+    Notification::fake();
 
-    public function test_password_can_be_reset_with_valid_token()
-    {
-        Notification::fake();
+    $user = User::factory()->create();
 
-        $user = User::factory()->create();
+    postJson(route('password.email'), [
+        'email' => $user->email,
+    ]);
 
-        $this->post('/forgot-password', ['email' => $user->email]);
+    Notification::assertSentTo($user, ResetPassword::class, function (ResetPassword $notification) use ($user) {
+        postJson(route('password.update'), [
+            'token' => $notification->token,
+            'email' => $user->email,
+            'password' => 'password',
+        ])
+            ->assertSessionHasNoErrors();
 
-        Notification::assertSentTo($user, ResetPassword::class, function ($notification) use ($user) {
-            $response = $this->post('/reset-password', [
-                'token' => $notification->token,
-                'email' => $user->email,
-                'password' => 'password',
-                'password_confirmation' => 'password',
-            ]);
-
-            $response->assertSessionHasNoErrors();
-
-            return true;
-        });
-    }
-}
+        return true;
+    });
+});
