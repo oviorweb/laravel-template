@@ -1,5 +1,10 @@
 <?php
 
+use Domain\App\Providers\AppServiceProvider;
+use Domain\App\Providers\AuthServiceProvider;
+use Domain\App\Providers\BroadcastServiceProvider;
+use Domain\App\Providers\EventServiceProvider;
+use Domain\App\Providers\RouteServiceProvider;
 use Illuminate\Support\Facades\Facade;
 
 return [
@@ -71,7 +76,7 @@ return [
     |
     */
 
-    'timezone' => 'UTC',
+    'timezone' => 'America/Toronto',
 
     /*
     |--------------------------------------------------------------------------
@@ -191,11 +196,11 @@ return [
         /*
          * Application Service Providers...
          */
-        App\Providers\AppServiceProvider::class,
-        App\Providers\AuthServiceProvider::class,
-        // App\Providers\BroadcastServiceProvider::class,
-        App\Providers\EventServiceProvider::class,
-        App\Providers\RouteServiceProvider::class,
+        AppServiceProvider::class,
+        AuthServiceProvider::class,
+        BroadcastServiceProvider::class,
+        EventServiceProvider::class,
+        RouteServiceProvider::class,
 
     ],
 

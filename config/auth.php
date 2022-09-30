@@ -2,6 +2,11 @@
 
 return [
 
+    'basic-auth' => [
+        'username' => env('BASIC_AUTH_USERNAME', 'root'),
+        'password' => env('BASIC_AUTH_PASSWORD', ''),
+    ],
+
     /*
     |--------------------------------------------------------------------------
     | Authentication Defaults
