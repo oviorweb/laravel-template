@@ -23,6 +23,6 @@ class LockedOut extends Notification implements ShouldQueue
         return (new MailMessage)
             ->greeting(__('Hello :name,', $notifiable->name))
             ->subject(__('Your account has been locked'))
-            ->line(__("We've detected suspicious activity on your Invercio account and have temporarily locked it as a security precaution for 1 minute."));
+            ->line(__("We've detected suspicious activity on your account and have temporarily locked it as a security precaution."));
     }
 }
