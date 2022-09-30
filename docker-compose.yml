@@ -26,6 +26,7 @@ services:
             - mysql
             - redis
             - mailhog
+            - soketi
     mysql:
         image: 'mysql/mysql-server:8.0'
         ports:
@@ -65,6 +66,14 @@ services:
             - '${FORWARD_MAILHOG_DASHBOARD_PORT:-8025}:8025'
         networks:
             - sail
+    soketi:
+        image: 'quay.io/soketi/soketi:latest-16-alpine'
+        environment:
+            SOKETI_DEBUG: '1'
+        ports:
+            - '${SOKETI_PORT:-6001}:6001'
+        networks:
+            - sail
 networks:
     sail:
         driver: bridge
@@ -72,6 +81,4 @@ volumes:
     sail-mysql:
         driver: local
     sail-redis:
-        driver: local
-    sail-meilisearch:
         driver: local
